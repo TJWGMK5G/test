@@ -1,0 +1,533 @@
+/* base */
+@import "./base/vars.scss";
+@import "./base/typography.scss";
+@import "./base/grid.scss";
+@import "./base/mixin.scss";
+@import "./base/UI.scss";
+
+
+/* pages */
+@import "index";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  height: 100%;
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+  font-family: $baseFont;
+  font-style: normal;
+  font-weight: 300;
+  font-size: rem(14px);
+  line-height: normal;
+  color: #111111;
+  background: #F4F5FC;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+#middle {
+  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+}
+
+#footer {
+  flex: 0 0 auto;
+  -webkit-box-flex: 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: $widthContainer;
+}
+
+// Общие стили
+input {
+  border: none;
+  border-bottom: 1px solid #F2F2F2;
+  padding-bottom: 6px;
+  background-color: transparent;
+  &:active, &:hover, &:focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+}
+
+button {
+  border: transparent;
+  padding: 0;
+  color: #111;
+  background-color: transparent;
+}
+
+.hidden {
+  display: none;
+}
+
+.margin-default {
+  margin: 0;
+}
+//
+
+// Стилизация страницы
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+
+  // Левая часть контента
+  &-sign {
+      position: relative;
+      z-index: 2;
+      background: #5A61ED;
+      color: #FFF;
+      max-width: 137.2px;
+      flex: 0 0 137px;
+
+      @media(max-width:500px) {
+        max-width: none;
+        flex: 0 0 64px;
+      }
+  }
+
+  // Правая часть контента
+  &-form {
+    position: relative;
+    z-index: 5;
+    padding: 38px 22px 32px 21px;
+    flex: 1 0 auto;
+
+    @media(max-width:700px) {
+      padding: 20px;
+      flex: auto;
+    }
+  }
+
+}
+
+.sign__title {
+  position: absolute;
+  z-index: 5;
+  bottom: 70px;
+  left: 20px;
+  white-space: nowrap;
+  twriting-mode: vertical-rl;
+  transform-origin: center;
+  transform: rotate(270deg); 
+  font-size: 49px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-family: $secondFont;
+
+  @media(max-width:500px) {
+    position: inherit;
+    transform: none;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    font-size: 30px;
+    padding: 20px 0px;;
+  }
+}
+
+.registration {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 665px;
+  display: flex;
+  flex-wrap: nowrap;
+  background: #fff;
+
+  @media(max-width:500px) {
+    flex-direction: column;
+  }
+}
+
+// Форма
+.form {
+  
+  &__title {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.46px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  &__text {
+    font-weight: 400;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  &-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15.3px;
+    margin-bottom: 16px;
+
+    @media(max-width:700px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+//
+
+// Стилизация блоков формы
+.group-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 235px;
+  width: 100%;
+
+  @media(max-width:700px) {
+    max-width: none;
+  }
+
+  &__title {
+    color: #7C7C7C;
+    font-size: 12px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  &__arrow {
+    width: 8px;
+    height: 4px;
+    fill: #000;
+  }
+}
+
+.content-wrap {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #f2f2f2;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.content-change {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+//
+
+// Стилизация шрифта в input
+.last-name, .mail, .name, .numb, .month, .year, .inputs-group, .password  {
+  font-weight: 400;
+  font-size: 14px;
+}
+//
+
+// Стилизация Радио-кнопок
+.content-inputs {
+  gap: 19px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 6px;
+}
+
+.radio {
+  border: 1px solid #5A61ED;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+//
+
+// Стилизация footer(подвал)
+.form-footer {
+  margin-top: 98px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  @media(max-width:700px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 70px;
+  }
+}
+
+.footer-text {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  & a {
+    transition: 0.3s ease;
+    color: #5A61ED;
+    text-decoration: underline;
+
+  }
+}
+
+.footer-btn {
+  cursor: pointer;
+  display: block;
+  padding: 7px 26px;
+  border: 0.5px solid #FFF;
+  background: #5A61ED;
+  color: #FFFFFF;
+  transition: 0.3s ease;
+  font-family: $secondFont;
+
+  &:hover {
+    background: #373fda;
+  }
+}
+//
+
+// Стилизация заднего фона 
+.main-bg {
+  position: absolute;
+  z-index: 2;
+  right: -10%;
+  bottom: -30%;
+  fill: #F9FAFF;
+
+  @media(max-width:500px) {
+    display: none;
+  }
+
+  &__icon {
+    width: 350px;
+    height: 500px;
+  }
+}
+//
+
+.ui-input {
+  position: relative;
+  &.error {
+    color: #FF2222;
+    border-color: #FF2828;
+    box-shadow: 0px 1px 0px 0px #ff2828;
+
+    &::placeholder {
+      color: #FF2222;
+    }
+
+    &:active, &:hover, &:focus {
+      outline: 0;
+      outline-offset: 0;
+    }
+  }
+
+  &.valid {
+    background-image: url(../images/icon/accept-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position-x: right;
+    background-position-y: center;
+  }
+}
+
+.inputs-group input[type=radio] {
+	display: none;
+}
+
+.inputs-group label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 20px;
+	margin-right: 0;
+	line-height: 18px;
+	user-select: none;
+}
+
+.inputs-group label:before {
+	content: "";
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	left: 0;
+	bottom: 1px;
+	border: 1px solid #5A61ED;
+  border-radius: 50%;
+}
+ 
+// Checked 
+.inputs-group input[type=radio]:checked + label:before {
+  content: "";
+	position: absolute;
+  width: 12px;
+  height: 12px;
+  color: red;
+  background-color: #fff;
+}
+
+.inputs-group input[type=radio]:checked + label::after {
+  content: "";
+	position: absolute;
+  top: 6px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: #5A61ED;
+  border-radius: 50%;
+} 
+//
+
+// Анимация при заходе на страницу input
+@-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+} 
+
+.group-content-name {
+  -webkit-animation-duration: 0.5s;
+  animation-delay: 0.3s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+  
+.group-content-lastName {
+  -webkit-animation-duration: 0.5s;
+  animation-delay: 0.6s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.group-content-location {
+  position: relative;
+  z-index: 6;
+  -webkit-animation-duration: 0.5s;
+  animation-delay: 0.8s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.group-content-mail {
+  -webkit-animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.group-content-date {
+  position: relative;
+  z-index: 5;
+  -webkit-animation-duration: 0.5s;
+  animation-delay: 1.2s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.group-content-gender {
+  -webkit-animation-duration: 0.5s;
+  animation-delay: 1.3s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.group-content-password1 {
+  -webkit-animation-duration: 0.5s;
+  animation-delay: 1.4s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.group-content-password2 {
+  -webkit-animation-duration: 0.5s;
+  animation-delay: 1.4s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+//
+
+
