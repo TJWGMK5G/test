@@ -47,6 +47,7 @@ $(function () {
           url: "./server-ok.json",
           success: function (data) {
             $('.success-popup').css('display', 'block');
+            console.log(data)
             $('.success-popup__text').html(data['success_title'])
             let inputForm = form.querySelectorAll('input.valid');
             inputForm.forEach((e) => {
