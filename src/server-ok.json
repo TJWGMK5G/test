@@ -1,7 +1,3 @@
 {
-    "success": [
-      {
-        "response": "ok"
-      }
-    ]
-  }
+  "success_title": "you registered!"
+}
